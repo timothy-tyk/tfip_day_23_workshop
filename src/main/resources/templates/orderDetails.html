@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Details</title>
+  </head>
+  <body>
+    <div data-th-if="${order!=null}">
+      <div data-th-object="${order}">
+        <h1>
+          <span>Details for Order :</span
+          ><span data-th-text="*{orderId}"></span>
+        </h1>
+        <div>Order Id: <span data-th-text="*{orderId}"></span></div>
+        <div>Order Date: <span data-th-text="*{orderDate}"></span></div>
+        <div>Customer Id: <span data-th-text="*{customerId}"></span></div>
+        <div>
+          Total Cost (Shipping & Discount incl):<span
+            data-th-text="*{totalCost}"
+          ></span>
+        </div>
+        <div>Cost Price: <span data-th-text="*{cost}"></span></div>
+      </div>
+    </div>
+    <div data-th-unless="${order!=null}">No such order by id</div>
+  </body>
+</html>
